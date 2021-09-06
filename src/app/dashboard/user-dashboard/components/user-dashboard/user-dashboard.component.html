@@ -6,7 +6,13 @@
         <p class="lead text-muted">Welcome {{ userDetail.name }}</p>
       </div>
     </div>
-    <div *ngIf="profile.status != null; else profileDisplayed">
+
+    <div
+      *ngIf="
+        errors.noprofile == 'There is no profile for this user';
+        else profileDisplayed
+      "
+    >
       <div>
         <a class="btn btn-primary m1" [routerLink]="['/profile/create-profile']"
           >Create Profile</a
@@ -16,8 +22,11 @@
     <ng-template #profileDisplayed>
       <div>
         <app-dashboard-action></app-dashboard-action>
-        <app-exp-details></app-exp-details>
-        <app-edu-details></app-edu-details>
+        <app-exp-details [exp]="profile.experience"></app-exp-details>
+        <app-edu-details [edu]="profile.education"></app-edu-details>
+      </div>
+      <div style="margin-bottom: 60px">
+        <button class="btn btn-danger">Delete My Account</button>
       </div>
     </ng-template>
   </div>

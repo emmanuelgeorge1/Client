@@ -1,4 +1,3 @@
-<!-- Education -->
 <div>
   <h4 class="mb-2">Education Credentials</h4>
   <table class="table">
@@ -11,10 +10,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Northern Essex</td>
-        <td>Associates</td>
-        <td>02-03-2007 - 01-02-2009</td>
+      <tr *ngFor="let e of edu">
+        <td>{{ e.school }}</td>
+        <td>{{ e.degree }}</td>
+        <td>{{ e.from }}- {{ e.to }}</td>
         <td>
           <button class="btn btn-danger">Delete</button>
         </td>

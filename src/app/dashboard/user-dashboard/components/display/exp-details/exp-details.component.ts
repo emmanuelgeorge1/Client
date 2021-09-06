@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-exp-details',
   templateUrl: './exp-details.component.html',
-  styleUrls: ['./exp-details.component.css']
+  styleUrls: ['./exp-details.component.css'],
 })
 export class ExpDetailsComponent implements OnInit {
-
-  constructor() { }
+  @Input()
+  exp: any[];
+  constructor() {}
 
   ngOnInit(): void {
+    console.log('ExpDetailsComponent');
+    console.log(this.exp);
   }
-
 }

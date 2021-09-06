@@ -1,0 +1,116 @@
+<div class="add-education">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 m-auto">
+        <a [routerLink]="['/dashboard/user']" class="btn btn-light">
+          Go Back
+        </a>
+        <h1 class="display-4 text-center">Add Your Education</h1>
+        <p class="lead text-center">
+          Add any school, bootcamp, etc that you have attended
+        </p>
+
+        <form (ngSubmit)="educationSubmit()">
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              placeholder="* School Or Bootcamp"
+              name="school"
+              required
+              [(ngModel)]="education.school"
+              [ngClass]="{
+                'form-control form-control-lg': true,
+                'is-invalid': errors.school
+              }"
+            />
+            <div class="d-block invalid-feedback">
+              {{ errors.school }}
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              placeholder="* Degree Or Certificate"
+              name="degree"
+              required
+              [(ngModel)]="education.degree"
+              [ngClass]="{
+                'form-control form-control-lg': true,
+                'is-invalid': errors.degree
+              }"
+            />
+            <div class="d-block invalid-feedback">
+              {{ errors.degree }}
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              placeholder="Field Of Study"
+              name="fieldofstudy"
+              [(ngModel)]="education.fieldofstudy"
+              [ngClass]="{
+                'form-control form-control-lg': true,
+                'is-invalid': errors.fieldofstudy
+              }"
+            />
+            <div class="d-block invalid-feedback">
+              {{ errors.fieldofstudy }}
+            </div>
+          </div>
+          <h6>From Date</h6>
+          <div class="form-group">
+            <input
+              type="date"
+              class="form-control form-control-lg"
+              name="from"
+              [(ngModel)]="education.from"
+              [ngClass]="{
+                'form-control form-control-lg': true,
+                'is-invalid': errors.from
+              }"
+            />
+            <div class="d-block invalid-feedback">
+              {{ errors.from }}
+            </div>
+          </div>
+          <h6>To Date</h6>
+          <div class="form-group">
+            <input
+              type="date"
+              class="form-control form-control-lg"
+              name="to"
+              [(ngModel)]="education.to"
+            />
+          </div>
+          <div class="form-check mb-4">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="current"
+              value=""
+              id="current"
+              [(ngModel)]="education.current"
+            />
+            <label class="form-check-label" for="current"> Current Job </label>
+          </div>
+          <div class="form-group">
+            <textarea
+              class="form-control form-control-lg"
+              placeholder="Program Description"
+              name="description"
+              [(ngModel)]="education.description"
+            ></textarea>
+            <small class="form-text text-muted"
+              >Tell us about your experience and what you learned</small
+            >
+          </div>
+          <input type="submit" class="btn btn-info btn-block mt-4" />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

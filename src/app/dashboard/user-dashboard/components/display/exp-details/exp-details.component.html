@@ -10,18 +10,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Tech Guy Web Solutions</td>
-        <td>Senior Developer</td>
-        <td>02-03-2009 - 01-02-2014</td>
-        <td>
-          <button class="btn btn-danger">Delete</button>
-        </td>
-      </tr>
-      <tr>
-        <td>Traversy Media</td>
-        <td>Instructor & Developer</td>
-        <td>02-03-2015 - Now</td>
+      <tr *ngFor="let e of exp">
+        <td>{{ e.company }}</td>
+        <td>{{ e.title }}</td>
+        <td>{{ e.from }} - {{ e.to }}</td>
         <td>
           <button class="btn btn-danger">Delete</button>
         </td>

@@ -1,0 +1,108 @@
+<div class="section add-experience">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 m-auto">
+        <a [routerLink]="['/dashboard/user']" class="btn btn-light">
+          Go Back
+        </a>
+        <h1 class="display-4 text-center">Add Your Experience</h1>
+        <p class="lead text-center">
+          Add any developer/programming positions that you have had in the past
+        </p>
+        <form (ngSubmit)="experienceSubmit()">
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              placeholder="* Job Title"
+              name="title"
+              required
+              [(ngModel)]="experince.title"
+              [ngClass]="{
+                'form-control form-control-lg': true,
+                'is-invalid': errors.title
+              }"
+            />
+            <div class="d-block invalid-feedback">
+              {{ errors.title }}
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              placeholder="* Company"
+              name="company"
+              required
+              [(ngModel)]="experince.company"
+              [ngClass]="{
+                'form-control form-control-lg': true,
+                'is-invalid': errors.company
+              }"
+            />
+            <div class="d-block invalid-feedback">
+              {{ errors.company }}
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              placeholder="Location"
+              name="location"
+              [(ngModel)]="experince.location"
+            />
+          </div>
+          <h6>From Date</h6>
+          <div class="form-group">
+            <input
+              type="date"
+              class="form-control form-control-lg"
+              name="from"
+              [(ngModel)]="experince.from"
+              [ngClass]="{
+                'form-control form-control-lg': true,
+                'is-invalid': errors.from
+              }"
+            />
+            <div class="d-block invalid-feedback">
+              {{ errors.from }}
+            </div>
+          </div>
+          <h6>To Date</h6>
+          <div class="form-group">
+            <input
+              type="date"
+              class="form-control form-control-lg"
+              name="to"
+              [(ngModel)]="experince.to"
+            />
+          </div>
+          <div class="form-check mb-4">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="current"
+              value=""
+              id="current"
+              [(ngModel)]="experince.current"
+            />
+            <label class="form-check-label" for="current"> Current Job </label>
+          </div>
+          <div class="form-group">
+            <textarea
+              class="form-control form-control-lg"
+              placeholder="Job Description"
+              name="description"
+              [(ngModel)]="experince.description"
+            ></textarea>
+            <small class="form-text text-muted"
+              >Some of your responsabilities, etc</small
+            >
+          </div>
+          <input type="submit" class="btn btn-info btn-block mt-4" />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
